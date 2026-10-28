@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA e Clima | A nova aliada do clima</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+:root{--d:#06432e;--m:#16803c;--l:#a4e84a;--text:#0d2a1f;--muted:#5d7568}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:#fff;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.hero{position:relative;background:linear-gradient(120deg,var(--d) 0%,#0f6b3a 38%,#5cb43a 72%,var(--l) 100%);color:#fff;padding-bottom:150px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+.brand{font-weight:600;font-size:1.1rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:26px}
+nav ul{display:flex;gap:34px;list-style:none;padding:0;align-items:center}
+nav a{color:#fff;text-decoration:none;font-size:.85rem;font-weight:500}
+.pill{display:inline-block;background:linear-gradient(90deg,#6dc23a,var(--l));color:#0b3a22;font-weight:600;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:13px 30px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.heroin{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;min-height:560px}
+.bar{width:56px;height:3px;background:var(--l);margin-bottom:22px;border-radius:3px}
+h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.1;font-weight:600;margin-bottom:18px}
+.heroin p{max-width:380px;font-size:.98rem;color:#dff3d4;margin-bottom:30px}
+.capsule{width:min(100%,290px);aspect-ratio:290/580;border-radius:145px;overflow:hidden;justify-self:center;box-shadow:0 30px 60px rgba(0,0,0,.28);border:6px solid rgba(255,255,255,.18)}
+.capsule svg{width:100%;height:100%;display:block}
+.leaf{position:absolute;z-index:2;filter:drop-shadow(0 12px 14px rgba(0,0,0,.18))}
+.l1{width:56px;left:34%;bottom:200px;transform:rotate(-20deg)}
+.l2{width:76px;right:8%;bottom:210px;transform:rotate(25deg)}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;display:block}
+section{padding:90px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--m)}
+.eyebrow::before{content:"";width:40px;height:3px;background:var(--l);border-radius:3px}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;font-weight:600;margin:14px 0 12px}
+.lead{color:var(--muted);max-width:520px;margin-bottom:44px}
+.chips{display:flex;flex-wrap:wrap;gap:14px}
+.chip{display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:10px 24px 10px 10px;box-shadow:0 10px 30px rgba(6,67,46,.12);font-weight:500;text-transform:capitalize}
+.chip i{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--d),#5cb43a);display:grid;place-items:center}
+.chip svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:70px}
+.card{border-radius:60px;padding:46px 36px;min-height:330px;display:flex;flex-direction:column;position:relative}
+.card .bar{margin-bottom:18px}
+.card h3{font-size:1.5rem;line-height:1.2;font-weight:600;margin-bottom:12px}
+.card p{font-size:.92rem;margin-bottom:26px}
+.card .pill{align-self:flex-start;margin-top:auto;padding:11px 24px;font-size:.72rem}
+.c1{background:linear-gradient(150deg,var(--d),#0f7a3c 60%,#5cb43a);color:#fff}.c1 p{color:#d4efc8}
+.c2{background:#fff;box-shadow:0 24px 60px rgba(6,67,46,.16)}.c2 p{color:var(--muted)}
+.c3{background:linear-gradient(150deg,#7fd23f,var(--l));color:#0b3a22}.c3 p{color:#1f5a30}.c3 .pill{background:var(--d);color:#fff}
+.n{font-size:3rem;font-weight:700;opacity:.18;position:absolute;right:34px;top:26px}
+.big{position:relative;background:linear-gradient(120deg,var(--d) 0%,#0e6a3b 55%,transparent 55.1%),var(--l);border-radius:70px;padding:80px 60px;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;color:#fff;overflow:hidden}
+.big h2{color:#fff}
+.big .eyebrow{color:var(--l)}
+.big p{color:#d9f1cf;font-size:1.05rem;max-width:430px}
+.duo{display:flex;gap:22px;justify-content:center}
+.arch{width:150px;height:300px;border-radius:75px 75px 30px 30px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.2);border:5px solid #fff}
+.arch:nth-child(2){margin-top:46px}
+.arch svg{width:100%;height:100%;display:block}
+footer{background:var(--d);color:#a9d6b6;text-align:center;padding:34px 0;font-size:.85rem}
+.soft{background:linear-gradient(180deg,#f2faea,#fff)}
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.use{background:#fff;border-radius:36px;padding:34px 28px;box-shadow:0 16px 44px rgba(6,67,46,.10);transition:transform .2s}
+.use:hover{transform:translateY(-5px)}
+.use i{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--d),#5cb43a);display:grid;place-items:center;margin-bottom:18px}
+.use svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.use h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.use p{font-size:.9rem;color:var(--muted)}
+.rows{display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:center;background:#fff;border-radius:999px;padding:14px 40px 14px 14px;box-shadow:0 10px 30px rgba(6,67,46,.09)}
+.row b{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,var(--d),#2f9a47);color:#fff;border-radius:999px;padding:14px 22px;font-weight:600;text-transform:capitalize}
+.row p{font-size:.92rem;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.box{border-radius:50px;padding:44px 40px}
+.box h3{font-size:1.4rem;font-weight:600;margin-bottom:16px}
+.box ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+.box li{position:relative;padding-left:30px;font-size:.93rem}
+.box li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50% 0 50% 0;background:var(--l)}
+.ok{background:linear-gradient(150deg,var(--d),#0f7a3c);color:#fff}.ok li{color:#d9f1cf}
+.warn{background:#fff;box-shadow:0 20px 50px rgba(6,67,46,.13)}.warn li{color:var(--muted)}.warn li::before{background:var(--m)}
+.final{text-align:center;padding:100px 0}
+.final blockquote{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:600;line-height:1.3;max-width:760px;margin:0 auto 22px;background:linear-gradient(90deg,var(--d),#3aa04a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+.qr{width:130px;height:130px;margin:0 auto;border:2px dashed var(--m);border-radius:28px;display:grid;place-items:center;color:var(--muted);font-size:.78rem;font-weight:500;padding:12px}
+@media(max-width:860px){
+ .uses,.two{grid-template-columns:1fr}
+ .row{grid-template-columns:1fr;border-radius:34px;padding:14px 22px 22px;gap:12px}
+ .box{padding:34px 26px;border-radius:38px}
+}
+@media(max-width:860px){
+ nav ul li:not(:last-child){display:none}
+ .heroin{grid-template-columns:1fr;min-height:0;padding-bottom:20px}
+ .capsule{width:220px}
+ .hero{padding-bottom:110px}
+ .l1{left:8%;bottom:120px}.l2{right:4%;bottom:130px;width:56px}
+ .cards{grid-template-columns:1fr;margin-top:50px}
+ .big{grid-template-columns:1fr;padding:50px 28px;border-radius:44px;background:linear-gradient(160deg,var(--d),#0e6a3b)}
+ .arch{width:130px;height:260px}
+ section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+ <linearGradient id="lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8f060"/><stop offset="1" stop-color="#0f7a3c"/></linearGradient>
+ <symbol id="leaf" viewBox="0 0 100 100"><path d="M8 92C6 42 44 8 94 6c2 52-30 88-86 86z" fill="url(#lf)"/><path d="M12 88C34 60 56 38 84 16" stroke="#fff" stroke-opacity=".4" stroke-width="2" fill="none"/></symbol>
+</defs></svg>
+
+<header class="hero" id="inicio">
+ <div class="wrap">
+  <nav>
+   <a class="brand" href="#inicio"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>IA &amp; Clima</a>
+   <ul><li><a href="#dados">Dados</a></li><li><a href="#processo">Processo</a></li><li><a href="#usos">Na prática</a></li><li><a href="#limites">Cuidados</a></li><li><a href="#sabia">Você sabia?</a></li><li><a class="pill" href="#dados">Saiba mais</a></li></ul>
+  </nav>
+  <div class="heroin">
+   <div>
+    <div class="bar"></div>
+    <h1>Inteligência Artificial: a nova aliada do clima</h1>
+    <p>Como a IA transforma dados do planeta em previsões que ajudam a entender o que está acontecendo.</p>
+    <a class="pill" href="#dados">Descubra como</a>
+   </div>
+   <div class="capsule">
+    <svg viewBox="0 0 290 580" preserveAspectRatio="xMidYMid slice">
+     <defs><linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#073d2a"/><stop offset=".6" stop-color="#1a8a40"/><stop offset="1" stop-color="#b6ee5a"/></linearGradient>
+     <radialGradient id="gl" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#d4fa8a"/><stop offset=".5" stop-color="#2fa04a"/><stop offset="1" stop-color="#06432e"/></radialGradient>
+     <clipPath id="gc"><circle cx="145" cy="270" r="95"/></clipPath></defs>
+     <rect width="290" height="580" fill="url(#bg1)"/>
+     <g fill="#fff" fill-opacity=".5"><circle cx="40" cy="80" r="2"/><circle cx="230" cy="60" r="2.5"/><circle cx="250" cy="150" r="1.8"/><circle cx="60" cy="150" r="1.8"/><circle cx="200" cy="110" r="1.5"/></g>
+     <circle cx="145" cy="270" r="120" fill="none" stroke="#d4fa8a" stroke-opacity=".5" stroke-dasharray="3 7"/>
+     <circle cx="145" cy="270" r="95" fill="url(#gl)"/>
+     <g clip-path="url(#gc)" fill="none" stroke="#fff" stroke-opacity=".3"><ellipse cx="145" cy="270" rx="95" ry="32"/><ellipse cx="145" cy="270" rx="95" ry="64"/><ellipse cx="145" cy="270" rx="32" ry="95"/><ellipse cx="145" cy="270" rx="64" ry="95"/><line x1="50" y1="270" x2="240" y2="270"/></g>
+     <g clip-path="url(#gc)" fill="#d4fa8a" fill-opacity=".55"><path d="M105 230q20-14 40-6t18 22q-14 10-28 4t-24 12-16-6q0-14 10-26z"/><path d="M160 295q22-4 34 8t-4 28q-20 3-32-10t2-26z"/></g>
+     <ellipse cx="145" cy="270" rx="150" ry="46" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="1.5" transform="rotate(-24 145 270)"/>
+     <g transform="rotate(-24 145 270)"><g transform="translate(292 270)"><rect x="-7" y="-5" width="14" height="10" rx="2" fill="#fff"/><rect x="-20" y="-2.5" width="11" height="5" fill="#a4e84a"/><rect x="9" y="-2.5" width="11" height="5" fill="#a4e84a"/></g></g>
+     <path d="M0 470q70-40 145-10t145-14v134H0z" fill="#0b5d34" fill-opacity=".7"/><path d="M0 510q80-36 150-6t140-10v86H0z" fill="#06432e"/>
+    </svg>
+   </div>
+  </div>
+ </div>
+ <svg class="leaf l1" viewBox="0 0 100 100"><use href="#leaf"/></svg>
+ <svg class="leaf l2" viewBox="0 0 100 100"><use href="#leaf"/></svg>
+ <svg class="wave" viewBox="0 0 1440 140" preserveAspectRatio="none" height="140"><path d="M0 140V70C200 -10 380 -10 620 50S1080 130 1440 40V140z" fill="#fff"/></svg>
+</header>
+
+<main>
+<section id="dados" style="padding-top:30px"><div class="wrap">
+ <span class="eyebrow">Dados</span>
+ <h2>Como a IA trabalha?</h2>
+ <p class="lead">Tudo começa com os dados. A IA reúne informações de diversas fontes que observam o planeta.</p>
+ <div class="chips">
+  <div class="chip"><i><svg viewBox="0 0 24 24"><path d="M14 14.8V4.5a2.5 2.5 0 0 0-5 0v10.3a4.5 4.5 0 1 0 5 0z"/></svg></i>temperatura</div>
+  <div class="chip"><i><svg viewBox="0 0 24 24"><path d="M17.5 14H7a4 4 0 1 1 .9-7.9A5.5 5.5 0 0 1 18 8a3 3 0 0 1-.5 6z"/><path d="M8 17v3M12 17v4M16 17v3"/></svg></i>chuva</div>
+  <div class="chip"><i><svg viewBox="0 0 24 24"><rect x="10" y="10" width="4" height="4" transform="rotate(45 12 12)"/><path d="M5 5l4 4M15 15l4 4M3 9l6-6M15 21l6-6"/></svg></i>satélites</div>
+  <div class="chip"><i><svg viewBox="0 0 24 24"><path d="M2 8c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 14c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/></svg></i>oceanos</div>
+  <div class="chip"><i><svg viewBox="0 0 24 24"><path d="M12 3c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.5 1 2 2 2-1-3-.5-5 1-8z"/></svg></i>queimadas</div>
+ </div>
+
+ <div class="cards" id="processo">
+  <div class="card c1"><span class="n">01</span><div class="bar"></div><h3>Dados</h3><p>Temperatura, chuva, satélites, oceanos e queimadas chegam de todo o planeta.</p><a class="pill" href="#dados">Fontes</a></div>
+  <div class="card c2"><span class="n">02</span><div class="bar" style="background:var(--m)"></div><h3>IA analisa padrões</h3><p>Algoritmos encontram relações escondidas nas informações.</p><a class="pill" href="#sabia">Entenda</a></div>
+  <div class="card c3"><span class="n">03</span><div class="bar" style="background:var(--d)"></div><h3>Previsões</h3><p>Resultados que ajudam a antecipar o comportamento do clima.</p><a class="pill" href="#sabia">Ver mais</a></div>
+ </div>
+</div></section>
+
+<section id="fontes" class="soft"><div class="wrap">
+ <span class="eyebrow">Fontes de dados</span>
+ <h2>O que cada dado revela</h2>
+ <p class="lead">Cada fonte conta uma parte da história do planeta. Juntas, elas dão à IA uma visão completa.</p>
+ <div class="rows">
+  <div class="row"><b>temperatura</b><p>Medida por estações meteorológicas, boias e satélites. Mostra ondas de calor, frio extremo e a evolução do aquecimento ao longo dos anos.</p></div>
+  <div class="row"><b>chuva</b><p>Registrada por pluviômetros e radares. Ajuda a prever enchentes, deslizamentos e períodos de seca.</p></div>
+  <div class="row"><b>satélites</b><p>Observam a Terra continuamente do espaço: nuvens, vegetação, gelo e atmosfera, em áreas enormes e de difícil acesso.</p></div>
+  <div class="row"><b>oceanos</b><p>A temperatura e as correntes da água influenciam o clima do planeta inteiro, incluindo fenômenos como o El Niño e a La Niña.</p></div>
+  <div class="row"><b>queimadas</b><p>Focos de calor são detectados por satélites, permitindo alertar rapidamente e acompanhar o avanço do fogo.</p></div>
+ </div>
+</div></section>
+
+<section id="usos"><div class="wrap">
+ <span class="eyebrow">Na prática</span>
+ <h2>Onde a IA já ajuda o clima</h2>
+ <p class="lead">Da previsão do tempo ao monitoramento de florestas, a tecnologia já está presente no nosso dia a dia.</p>
+ <div class="uses">
+  <div class="use"><i><svg viewBox="0 0 24 24"><path d="M17.5 14H7a4 4 0 1 1 .9-7.9A5.5 5.5 0 0 1 18 8a3 3 0 0 1-.5 6z"/><path d="M8 17v3M12 17v4M16 17v3"/></svg></i><h3>Previsão do tempo</h3><p>Modelos de IA, como o GraphCast e o Pangu-Weather, aprendem com décadas de dados e geram previsões em poucos minutos.</p></div>
+  <div class="use"><i><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><h3>Eventos extremos</h3><p>Ajuda a antecipar tempestades, ciclones, secas e enchentes, dando mais tempo para alertar a população.</p></div>
+  <div class="use"><i><svg viewBox="0 0 24 24"><path d="M12 3c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.5 1 2 2 2-1-3-.5-5 1-8z"/></svg></i><h3>Queimadas e desmatamento</h3><p>Analisa imagens de satélite para identificar focos de fogo e áreas desmatadas quase em tempo real.</p></div>
+  <div class="use"><i><svg viewBox="0 0 24 24"><path d="M2 8c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 14c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/></svg></i><h3>Oceanos e gelo</h3><p>Acompanha o aquecimento da água, as correntes marinhas e o derretimento de geleiras e calotas polares.</p></div>
+  <div class="use"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></i><h3>Energia limpa</h3><p>Prevê a quantidade de sol e de vento para que usinas solares e eólicas produzam energia de forma mais eficiente.</p></div>
+  <div class="use"><i><svg viewBox="0 0 24 24"><path d="M12 22V10M12 10c0-4-3-6-7-6 0 4 3 6 7 6zM12 13c0-3 2-5 6-5 0 3-2 5-6 5z"/></svg></i><h3>Agricultura</h3><p>Com previsões de chuva e calor, produtores planejam melhor o plantio e a colheita e perdem menos safras.</p></div>
+ </div>
+</div></section>
+
+<section id="limites" style="padding-top:10px"><div class="wrap">
+ <span class="eyebrow">Equilíbrio</span>
+ <h2>Vantagens e cuidados</h2>
+ <p class="lead">A IA é uma ferramenta poderosa, mas precisa ser usada com responsabilidade.</p>
+ <div class="two">
+  <div class="box ok"><h3>O que a IA oferece</h3><ul>
+   <li>Rapidez para processar enormes volumes de dados.</li>
+   <li>Capacidade de achar padrões difíceis de ver a olho nu.</li>
+   <li>Alertas antecipados que podem proteger vidas.</li>
+   <li>Apoio a cientistas e governos na tomada de decisões.</li></ul></div>
+  <div class="box warn"><h3>Pontos de atenção</h3><ul>
+   <li>Depende de dados de boa qualidade e bem distribuídos.</li>
+   <li>Eventos raros e muito intensos ainda são difíceis de prever.</li>
+   <li>Não substitui o trabalho e a análise de cientistas.</li>
+   <li>Treinar e rodar modelos gasta energia, então é preciso eficiência.</li></ul></div>
+ </div>
+</div></section>
+
+<section id="sabia" style="padding-top:20px"><div class="wrap">
+ <div class="big">
+  <div>
+   <span class="eyebrow">Curiosidade</span>
+   <h2>Você sabia?</h2>
+   <p>A Inteligência Artificial consegue analisar enormes quantidades de dados em pouco tempo, permitindo identificar padrões que seriam muito difíceis de encontrar manualmente.</p>
+  </div>
+  <div class="duo">
+   <div class="arch"><svg viewBox="0 0 150 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b5d34"/><stop offset="1" stop-color="#7fd23f"/></linearGradient></defs><rect width="150" height="300" fill="url(#a1)"/><circle cx="110" cy="60" r="22" fill="#d4fa8a" fill-opacity=".8"/><g fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"><path d="M-10 150q20-16 40 0t40 0 40 0 40 0"/><path d="M-10 190q20-16 40 0t40 0 40 0 40 0"/><path d="M-10 230q20-16 40 0t40 0 40 0 40 0"/><path d="M-10 270q20-16 40 0t40 0 40 0 40 0"/></g></svg></div>
+   <div class="arch"><svg viewBox="0 0 150 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="a2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a4e84a"/><stop offset="1" stop-color="#16803c"/></linearGradient></defs><rect width="150" height="300" fill="url(#a2)"/><rect x="62" y="70" width="26" height="18" rx="3" fill="#fff" transform="rotate(35 75 79)"/><rect x="38" y="76" width="22" height="9" fill="#06432e" transform="rotate(35 49 80)"/><rect x="90" y="72" width="22" height="9" fill="#06432e" transform="rotate(35 101 76)"/><g fill="#fff" fill-opacity=".85"><circle cx="30" cy="190" r="4"/><circle cx="75" cy="215" r="5"/><circle cx="118" cy="180" r="4"/><circle cx="55" cy="250" r="3"/><circle cx="100" cy="255" r="4"/></g><g stroke="#fff" stroke-opacity=".6" stroke-width="1.5"><path d="M30 190L75 215L118 180M75 215L55 250M75 215L100 255"/></g></svg></div>
+  </div>
+ </div>
+</div></section>
+
+</main>
+<footer>Inteligência Artificial: a nova aliada do clima</footer>
+</body>
+</html>
